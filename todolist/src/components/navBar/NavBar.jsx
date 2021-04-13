@@ -23,9 +23,6 @@ const TitleBlock = styled.div`
   font-weight: normal;
   font-size: 32px;
   line-height: 46px;
-
-  /* Black */
-
   color: #010101;
 `;
 
@@ -41,9 +38,9 @@ function NavBar() {
   const LogStorageDom = useRef();
   const [appear, setLogViewState] = useState(false);
 
-  const handleLogBtnClick = () => {
-    setLogViewState(true); //바로 값이 바뀌지는 않는다.
-    // if (appear) LogStorageDom.current.classList.add("appear");
+  const handleLogBtnClick = (LogStorageDom) => {
+    setLogViewState(true);
+    if (appear) LogStorageDom.current.classList.add("appear");
   };
 
   return (
@@ -54,7 +51,12 @@ function NavBar() {
           <HiMenu className="icon" onClick={handleLogBtnClick} />
         </LogBtnBlock>
       </NavBlock>
-      {appear && <LogStorage logDom={LogStorageDom}></LogStorage>}
+      {appear && (
+        <LogStorage
+          ref={LogStorageDom}
+          setLogViewState={setLogViewState}
+        ></LogStorage>
+      )}
     </>
   );
 }
