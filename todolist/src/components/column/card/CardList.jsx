@@ -5,7 +5,12 @@ function CardList(props) {
   return (
     <ul>
       {cards.map((card) => (
-        <CardWrap key={card.id} card={card} onDelete={onDelete} onUpdate={onUpdate} />
+        <CardWrap
+          key={card.cardId}
+          card={card}
+          onDelete={onDelete}
+          onUpdate={onUpdate}
+        />
       ))}
     </ul>
   );

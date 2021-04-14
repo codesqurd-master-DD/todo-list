@@ -56,10 +56,10 @@ const tempData = [
 export default function Board({ onLog }) {
   const [columns, setColumns] = useState(tempData);
 
-  const addColumn = (title) => {
+  const addColumn = () => {
     const column = {
       columnId: Date.now(),
-      columnTitle: title,
+      columnTitle: "new column",
       items: [],
     };
     setColumns([...columns, column]);
@@ -67,7 +67,7 @@ export default function Board({ onLog }) {
   return (
     <BoardBlock>
       {columns.map((column) => (
-        <Column onLog={onLog} column={column} key={column.id} />
+        <Column onLog={onLog} column={column} key={column.columnId} />
       ))}
       <Button type="add" subType="bigSize" onClick={addColumn}></Button>
     </BoardBlock>
