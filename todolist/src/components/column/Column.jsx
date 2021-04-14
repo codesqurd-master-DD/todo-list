@@ -40,7 +40,7 @@ const ColumnCount = styled.div`
 `;
 
 function Column({ onLog, column }) {
-  const { title, items } = column;
+  const { columnTitle, items } = column;
   const [cards, setCards] = useState(items);
 
   const [enrollMode, setEnrollMode] = useState(false);
@@ -49,8 +49,8 @@ function Column({ onLog, column }) {
     setEnrollMode(!enrollMode);
     setCards(cards.concat(card));
     onLog({
-      cardTitle: card.title,
-      columnTitle: "하고 있는 일",
+      cardTitle: card.cardTitle,
+      columnTitle,
       modeType: "add",
     });
   };
@@ -60,23 +60,23 @@ function Column({ onLog, column }) {
     setEnrollMode(!enrollMode);
   };
 
-  const handleDelete = (target) => {
-    setCards(cards.filter((e) => e.id !== target.id));
+  const handleDelete = ({ cardId, cardTitle }) => {
+    setCards(cards.filter((e) => e.cardId !== cardId));
     onLog({
-      cardTitle: target.title,
-      columnTitle: "하고 있는 일",
+      cardTitle: cardTitle,
+      columnTitle,
       modeType: "delete",
     });
   };
 
-  const handleUpdate = ({ id, title, content }) => {
-    const card = cards.find((e) => e.id === id);
-    card.title = title;
-    card.content = content;
-    setCards(cards);
+  const handleUpdate = ({ cardId, cardTitle, content }) => {
+    const newCards = cards.map((card) => {
+      return card.cardId !== cardId ? card : { ...card, cardTitle, content };
+    });
+    setCards(newCards);
     onLog({
-      cardTitle: title,
-      columnTitle: "하고 있는 일",
+      cardTitle,
+      columnTitle,
       modeType: "update",
     });
   };
@@ -85,7 +85,7 @@ function Column({ onLog, column }) {
     <ColumnContainer>
       <ColumnMenu>
         <ColumnTitle>
-          <div>{title}</div>
+          <div>{columnTitle}</div>
           <ColumnCount>{cards.length}</ColumnCount>
         </ColumnTitle>
         <Button onClick={() => setEnrollMode(!enrollMode)} type="add" />

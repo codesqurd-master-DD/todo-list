@@ -9,8 +9,8 @@ function CardWrap(props) {
   const [editMode, setEditMode] = useState(false);
   const cardContainer = useRef();
 
-  const handleSubmit = ({ id, title, content }) => {
-    onUpdate({ id, title, content });
+  const handleSubmit = ({ cardId, cardTitle, content }) => {
+    onUpdate({ cardId, cardTitle, content });
     setEditMode(!editMode);
   };
 

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { HiMenu } from "react-icons/hi";
 import { useState } from "react";
 import LogStorage from "./LogStorage";
 import Button from "../utils/Button";
