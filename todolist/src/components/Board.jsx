@@ -55,7 +55,6 @@ const tempData = [
 
 export default function Board({ onLog }) {
   const [columns, setColumns] = useState(tempData);
-
   const addColumn = () => {
     const column = {
       columnId: Date.now(),

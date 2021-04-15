@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import CardForm from "./card/CardForm";
 import CardList from "./card/CardList";
