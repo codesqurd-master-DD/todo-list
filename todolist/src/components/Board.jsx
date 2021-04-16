@@ -39,13 +39,13 @@ export default function Board({ onLog }) {
   }, []);
 
   useEffect(() => {
-    fetch(URL.setDB, {
+    (async() => await fetch(URL.setDB, {
       method: "post",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(columns),
-    });
+    }))();
   }, [columns]);
 
   const addColumn = () => {
