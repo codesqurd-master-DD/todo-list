@@ -93,7 +93,6 @@ function Column({
             )}
           </ColumnTitleWrapper>
           <ColumnCount>{items.length}</ColumnCount>
-          <Button onClick={() => setEnrollMode(!enrollMode)} type="add" />
         </ColumnTitle>
         <Button onClick={() => setEnrollMode(!enrollMode)} type="add" />
         <Button onClick={() => deleteColumn(columnId)} type="delete" />

@@ -15,14 +15,41 @@ const mockData = [
     columnTitle: "해야할 일",
     items: [
       {
-        cardId: 424124,
-        cardTitle: "temp title1",
+        cardId: 53341,
+        cardTitle: "새벽 코딩",
         content: "졸리다 졸려",
       },
       {
-        cardId: 251124,
-        cardTitle: "temp title2",
-        content: "임시 내용22",
+        cardId: 64343,
+        cardTitle: "배고프다",
+        content: "치킨 먹고싶다",
+      },
+    ],
+  },
+  {
+    columnId: 41212,
+    columnTitle: "해야할 일",
+    items: [
+      {
+        cardId: 21441,
+        cardTitle: "리액트 공부하기",
+        content: "useEffect 콜백 함수에 대해서",
+      },
+      {
+        cardId: 11123,
+        cardTitle: "리액트 공부하기2",
+        content: "useState에 대해서",
+      },
+    ],
+  },
+  {
+    columnId: 66323,
+    columnTitle: "완료한 일",
+    items: [
+      {
+        cardId: 425,
+        cardTitle: "몽고디비 연결",
+        content: "몽고디비 연결, 데이터 받아오기",
       },
     ],
   },
